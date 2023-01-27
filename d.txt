@@ -1,0 +1,3 @@
+ Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda repellat non blanditiis est facere velit iusto temporibus dolorem laborum! Libero eveniet placeat quam, omnis ea beatae! Suscipit quae dolores iusto?
+
+ Lorem é um texto de marcação, que usamos quando ainda não temos o que será escrito mas precisamos marcar o local onde irá.

@@ -12,6 +12,6 @@ Nessa sprint aprofundamos nossos conhecimentos nessas áreas:
 
 Para organizar melhor meus estudos, elaborei um resumo no Notion sobre os principais pontos:
 
-[Resumo Notion Sprint#1](https://spice-millennium-6c2.notion.site/Est-gio-Compass-UOL-f45dc30b12c94b4db14fc58a8125bda6){:target="_blank" rel="noopener"}
+[Resumo Notion Sprint#1](https://spice-millennium-6c2.notion.site/Est-gio-Compass-UOL-f45dc30b12c94b4db14fc58a8125bda6)
 
 [Portifólio de Julio Emílio](https://julioecl.github.io/)

@@ -7,8 +7,7 @@ Nessa sprint aprofundamos os conhecimentos nessas áreas:
 * Git e GitHub
 * Markdown para README
 * Criação de um portifólio no Git
-* 
-*
+* Trabalhar com máquina virtural - Utilizando GNU / Linux
 
 Para organizar melhor os estudos, elaborei um resumo no Notion sobre os principais pontos:
 

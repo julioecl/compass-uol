@@ -36,4 +36,4 @@ Como mencionei, procuro mudar de área, buscar um novo caminho a ser trilhado.
 
 Sempre trabalhei em empresa familiar e fui muito dedicado a elas.
 
-[Portifólio de Julio Emílio](https://julioecl.github.io/))
+[Portifólio de Julio Emílio](https://julioecl.github.io/)

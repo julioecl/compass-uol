@@ -1,5 +1,3 @@
-![Compass.Uol](![Compass.Uol](./images/CompassUOL_Negativo_logo2.png)
-
 # Julio Emílio Cerutti Lima
 
 ## Bio

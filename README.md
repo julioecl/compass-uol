@@ -34,6 +34,6 @@ Conheço muito bem o inglês e o espanhol. Por não praticar, acredito estar um 
 
 Como mencionei, procuro mudar de área, buscar um novo caminho a ser trilhado.
 
-Sempre trabalhei em empresa familiar e fui muito dedicado a elas.
+Sempre trabalhei em empresas familiares e fui muito dedicado a elas.
 
 [Portifólio de Julio Emílio](https://julioecl.github.io/)

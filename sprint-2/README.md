@@ -1,4 +1,4 @@
-![Compass.Uol](../../compass-uol/sprint-1/images/CompassUOL_Negativo_logo2.png)
+![Compass.Uol](../sprint-1/images/CompassUOL_Negativo_logo2.png)
 
 # Sprint 2
 

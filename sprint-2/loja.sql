@@ -49,23 +49,15 @@ WHERE soma_vendida = (select max(soma_vendida) from tabela_vendas_concluidas)
 -- As colunas presentes no resultado devem ser vendedor, valor_total_vendas e comissao.
 -- O valor de comissão deve ser apresentado em ordem decrescente arredondado na segunda casa decimal.
 
-WITH tabela_vendas_e_comissao as (
-	SELECT	
-		vendedor.nmvdd  as vendedor,		
-		sum(vendas.qtd*vendas.vrunt) as valor_total_vendas,		
-		round((round((vendedor.perccomissao)/100, 2) * (sum(vendas.qtd*vendas.vrunt))),2) as comissao		
-	from tbvendas as vendas
-	left join tbvendedor as vendedor
-		on vendas.cdvdd = vendedor.cdvdd	
-	WHERE vendas.status = 'Concluído'
-	group by vendedor.cdvdd
-)
-
-SELECT 
-	vendedor,	
-	valor_total_vendas,	
-	comissao
-from tabela_vendas_e_comissao
+SELECT	
+	vendedor.nmvdd  as vendedor,		
+	sum(vendas.qtd*vendas.vrunt) as valor_total_vendas,		
+	round((round((vendedor.perccomissao),2)/100 * (sum(vendas.qtd*vendas.vrunt))),2) as comissao
+from tbvendas as vendas
+left join tbvendedor as vendedor
+	on vendas.cdvdd = vendedor.cdvdd	
+WHERE vendas.status = 'Concluído'
+group by vendedor.cdvdd
 order by comissao DESC 
 
 -- E11
@@ -121,23 +113,14 @@ WHERE valor_total_vendas = (select min(valor_total_vendas) from tabela_dependent
 -- Apresente a query para listar os 10 produtos menos vendidos pelos canais de E-Commerce ou Matriz (Considerar apenas vendas concluídas).
 -- As colunas presentes no resultado devem ser cdpro, nmcanalvendas, nmpro e quantidade_vendas.
 
-WITH produtos_mais_vendidos as (
-	SELECT
-		cdpro,
-		nmcanalvendas,
-		nmpro,
-		SUM(qtd) as quantidade_vendas
-	from tbvendas
-	where status = 'Concluído' and (nmcanalvendas = 'Matriz' or nmcanalvendas = 'Ecommerce')
-	group by nmpro, nmcanalvendas 	
-)
-
-SELECT 
+SELECT
 	cdpro,
 	nmcanalvendas,
 	nmpro,
-	quantidade_vendas
-from produtos_mais_vendidos
+	SUM(qtd) as quantidade_vendas
+from tbvendas
+where status = 'Concluído' and (nmcanalvendas = 'Matriz' or nmcanalvendas = 'Ecommerce')
+group by nmpro, nmcanalvendas 
 order by quantidade_vendas
 LIMIT 10
 
@@ -147,20 +130,12 @@ LIMIT 10
 -- Considere apresentar a coluna gastomedio arredondada na segunda casa decimal e ordenado de forma decrescente. 
 -- Observação: Apenas vendas com status concluído.
 
-WITH gasto_por_estado as (
-	select
-		estado,
-		count(qtd) as total_vendas,
-		ROUND(sum(qtd*vrunt),2) as gasto_total
-	from tbvendas
-	where status = 'Concluído'
-	GROUP by estado	
-)
-
-SELECT 
-	estado,
-	ROUND((gasto_total/total_vendas),2) as gastomedio
-from gasto_por_estado
+select
+	estado,		
+	ROUND(sum(qtd*vrunt)/ROUND(count(qtd),2),2) as gastomedio
+from tbvendas
+where status = 'Concluído'
+GROUP by estado
 order by gastomedio DESC 
 
 -- E15
@@ -179,19 +154,14 @@ WHERE deletado is TRUE
 -- Ordene os resultados pelo estado (1º) e nome do produto (2º).
 -- Obs: Somente vendas concluídas.
 
-WITH qtde_por_estado as (
-	select
-		estado,
-		nmpro,
-		round(round(sum(qtd),4)/round(count(qtd),4),4) as quantidade_media
-	from tbvendas
-	where status = 'Concluído'
-	GROUP by estado, nmpro	
-)
 
-SELECT 
+
+
+select
 	estado,
 	nmpro,
-	quantidade_media
-from qtde_por_estado
+	round(sum(qtd)/round(count(qtd),4),4) as quantidade_media
+from tbvendas
+where status = 'Concluído'
+GROUP by estado, nmpro
 order by estado, nmpro

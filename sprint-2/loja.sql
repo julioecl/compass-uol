@@ -53,7 +53,7 @@ WITH tabela_vendas_e_comissao as (
 	SELECT	
 		vendedor.nmvdd  as vendedor,		
 		sum(vendas.qtd*vendas.vrunt) as valor_total_vendas,		
-		round(((vendedor.perccomissao) * (sum(vendas.qtd*vendas.vrunt)))/100,2) as comissao		
+		round((round((vendedor.perccomissao),2)/100 * (sum(vendas.qtd*vendas.vrunt))),2) as comissao		
 	from tbvendas as vendas
 	left join tbvendedor as vendedor
 		on vendas.cdvdd = vendedor.cdvdd	

@@ -72,7 +72,7 @@ left join editora as edt
 	on liv.editora = edt.codeditora
 left join endereco as endr
 	on edt.endereco = endr.codendereco
-where endr.estado <> 'RIO GRANDE DO SUL' and endr.estado <> 'PARANÁ'
+where endr.estado NOT IN ('RIO GRANDE DO SUL', 'PARANÁ' )
 order by aut.nome
 
 -- E6

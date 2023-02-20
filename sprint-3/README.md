@@ -8,4 +8,4 @@ Nessa sprint aprofundamos os conhecimentos nessas áreas:
 
 Para organizar melhor os estudos, elaborei um resumo no Notion sobre os principais pontos:
 
-[Resumo Notion Sprint#2](https://spice-millennium-6c2.notion.site/Est-gio-Compass-UOL-3-d9469bbdfc4b45cc9c3f7454211c4eec)
+[Resumo Notion Sprint#3](https://spice-millennium-6c2.notion.site/Est-gio-Compass-UOL-3-d9469bbdfc4b45cc9c3f7454211c4eec)

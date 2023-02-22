@@ -2,7 +2,7 @@
 
 # Sprint 3
 
-Nessa sprint aprofundamos os conhecimentos nessas áreas:
+Nessa sprint aprofundamos os conhecimentos em:
 
 * Python
 

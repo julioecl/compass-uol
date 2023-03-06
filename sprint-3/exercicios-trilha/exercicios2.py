@@ -2,8 +2,6 @@
 Exercícios Parte 2 - 6
 Dada duas listas como as no exemplo abaixo:
 
-
-
 a = [1, 1, 2, 3, 5, 8, 14, 21, 34, 55, 89]
 b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 
@@ -101,7 +99,7 @@ Dica: leia a documentação da função open(...)
 """
 
 arq = open("arquivo_texto.txt")
-print(arq.read())
+print(arq.read(),end="")
 
 """
 Exercícios Parte 2 - 12
@@ -202,13 +200,12 @@ lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 """
 lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
-splits = len(lista)//3
-nova_lista = list()
+sub_lists_len = len(lista)//3
+first_list_end = sub_lists_len
+second_list_end = first_list_end + sub_lists_len
+third_list_end = second_list_end + second_list_end
 
-for i in range(0, len(lista), splits):
-    nova_lista.append(lista[i:i+splits])
-
-print(nova_lista)
+print(lista[0:first_list_end], lista[first_list_end:second_list_end], lista[second_list_end:third_list_end])
 """
 Exercícios Parte 2 - 18
 Dado o dicionário a seguir:
@@ -236,11 +233,11 @@ Obs.: Lembrem-se, para calcular a mediana a lista deve estar ordenada!
 Use as variáveis abaixo para representar cada operação matemática
 """
 import random
-import statistics
 
 random_list = random.sample(range(500), 50)
-
-mediana = statistics.median(random_list)
+lista_ordenada = sorted(random_list)
+meio_da_lista = len(lista_ordenada)//2
+mediana = (lista_ordenada[meio_da_lista] + lista_ordenada[meio_da_lista-1]) / 2
 media = sum(random_list)/50
 valor_minimo = min(random_list)
 valor_maximo = max(random_list)

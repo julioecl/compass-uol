@@ -1,0 +1,44 @@
+Entrar na pastas: cd .\Desktop\git-udemy\compass-uol\sprint-4\aws
+
+Executar códigos:
+Manager ssh -i "ec2-script2.pem" ec2-user@ec2-52-53-185-120.us-west-1.compute.amazonaws.com
+
+Node1 ssh -i "ec2-script2.pem" ec2-user@ec2-52-53-169-142.us-west-1.compute.amazonaws.com
+
+Node2 ssh -i "ec2-script2.pem" ec2-user@ec2-54-241-112-227.us-west-1.compute.amazonaws.com
+
+Em cada um executar o comando de iniciar:
+sudo service docker start
+
+sudo usermod -a -G docker ec2-user
+
+Executar o swarm init em um, que será o manager com o ip da instância ec2 da aws
+
+Manager: sudo docker swarm init --advertise-addr 52.53.185.120 
+
+Workers: copiar código do manager
+Caso seja necessário adicionar mais instâncias posteriormente, para descobrir esse token, basta ir no manager e digitar:
+
+sudo docker swarm join --token SWMTKN-1-4hc7lru7ov0ccs7axt98rgyd959yvierkym92ht8xucxp4e6az-91f6um9892u6uvwkc81rp2ch8 52.53.185.120:2377
+
+docker swarm join-token manager
+
+Listar node: docker node ls
+
+Sai do swarm (não é mais considerada um node do swarw)
+docker swarm leave -f
+
+Remover um Node
+docker node rm ID -f (caso esteja rodando)
+
+Subindo serviço na aws
+docker service create --name nginxswarm -p 80:80 nginx
+
+subindo serviço com replicas
+docker service create --name nginxreplicas --replicas 3 -p 80:80 nginx
+
+verificar quais containers estão rodando
+docker service ps ID
+
+Compose no swarm
+

@@ -1,0 +1,41 @@
+# Instruções para o programa
+nome: "Matheus"
+idade: 30 # Esta é a idade do usuário
+
+
+# Estre objeto descreve nosso projeto
+objeto:
+  versao: 2
+  arquivo: "teste.txt"
+
+# Números
+versao: 2
+versao_completa: 3.14
+
+# String
+string: assim
+string2: "ou assim"
+
+# Nulo
+chave: ~
+chave2: null
+
+# Booleano
+verdadeiro: True
+verdadeiro2: On
+Falso: False
+Falso2: False
+
+# Listas
+lista: [1, 2, 3, 4, 5]
+items:
+  - 1
+  - 2
+  - 3
+
+# Dicionário ou objeto
+objeto2:
+  versao: 40.5
+  arquivo: "teste.txt"
+
+objeto3: {a: 1, b: 2, c: 3}

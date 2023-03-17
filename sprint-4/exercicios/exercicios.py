@@ -155,12 +155,8 @@ sorted
 """
 with open('estudantes.csv') as arquivo:
     alunos = sorted(list(map(lambda x: sorted(x.strip('\n').split(','), reverse=True), arquivo)))
-    notas = list(map(lambda x: x[1:], alunos)) 
-    
-
-with open('estudantes.csv') as arquivo:
-    l1 = sorted(list(map(lambda i: sorted(i.strip("\n").split(","), reverse=1), arquivo.readlines())))
-    for l in l1:
-        notas = sorted([int(i) for i in l[1:]], reverse=1)
-        media = sum(notas[:3])/3
-    print (f"Nome: {l[0]} Notas: {notas[:3]} Média: {round(media, 2)}")
+    for aluno in alunos:
+        nome = aluno[0]
+        notas = sorted([int(i) for i in aluno[1:]], reverse=1)[:3]
+        media = round(sum(notas)/3, 2)
+        print (f"Nome: {nome} Notas: {notas} Média: {media}")

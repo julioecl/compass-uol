@@ -4,9 +4,10 @@
 
 Nessa sprint aprofundamos os conhecimentos em:
 
-* Programação funciona;
+* Programação funcional;
 * Python funcional;
-* Docker
+* Docker;
+* Estastística Descritiva.
 
 Para organizar melhor os estudos, elaborei um resumo no Notion sobre os principais pontos:
 

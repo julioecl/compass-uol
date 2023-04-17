@@ -12,3 +12,33 @@ WITH SERDEPROPERTIES (
  'field.delim' = ','
 )
 LOCATION 's3://atividade1-julio/';
+
+WITH decadas AS (
+    SELECT
+        nome,
+        CASE
+            WHEN ano BETWEEN 1950 AND 1959 THEN '1950s'
+            WHEN ano BETWEEN 1960 AND 1969 THEN '1960s'
+            WHEN ano BETWEEN 1970 AND 1979 THEN '1970s'
+            WHEN ano BETWEEN 1980 AND 1989 THEN '1980s'
+            WHEN ano BETWEEN 1990 AND 1999 THEN '1990s'
+            WHEN ano BETWEEN 2000 AND 2009 THEN '2000s'
+            WHEN ano BETWEEN 2010 AND 2019 THEN '2010s'
+            WHEN ano BETWEEN 2020 AND 2029 THEN '2020s'
+            ELSE null
+        END AS decada,
+        ano,
+        total
+    FROM meubanco.athena_logs
+    WHERE ano >= 1950
+)
+SELECT decada, nome
+FROM (
+    SELECT decadas.decada, logs.nome, SUM(decadas.total) AS total,
+        ROW_NUMBER() OVER (PARTITION BY decadas.decada ORDER BY SUM(decadas.total) DESC) AS rank
+    FROM decadas
+    INNER JOIN meubanco.athena_logs logs ON decadas.nome = logs.nome AND decadas.ano = logs.ano
+    GROUP BY decadas.decada, logs.nome
+) subquery
+WHERE rank <= 3
+ORDER BY decada

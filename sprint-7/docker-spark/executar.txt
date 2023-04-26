@@ -1,0 +1,15 @@
+no terminal: pyspark
+colar código:
+
+import re
+
+text_file = sc.textFile("README.md")
+counts = text_file.flatMap(lambda line: re.findall(r'\w+', line.lower())) \
+                            .map(lambda word: (word, 1)) \
+                            .reduceByKey(lambda x, y: x + y) \
+                            .sortBy(lambda x: x[1], ascending=False)
+
+output = counts.collect()
+
+for word, count in output:
+    print(f'{word}: {count}')

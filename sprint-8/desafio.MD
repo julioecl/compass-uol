@@ -14,8 +14,12 @@ nos EUA.
     Traz filmes com o gênero escolhido
 * A partir dessas ids que eu receber dos filmes de Crime, usarei nesse endpoint para buscar as informações:
     https://api.themoviedb.org/3/movie/{movie_id}?api_key={api_key}&language=pt-BR
-    As informações serão:
-        * revenue(renda);
-        * popularity(popularidade);
-        * production_country(país de produção);
-        * vote_average(nota média);
+    As informações serão: 
+
+        revenue(renda);
+
+        popularity(popularidade);
+
+        production_country(país de produção);
+        
+        vote_average(nota média);

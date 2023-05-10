@@ -14,6 +14,7 @@ ou isso realmente está concentrado mais nos que são de idioma inglês.
     Traz filmes com o gênero escolhido
 * A partir dessas ids que eu receber dos filmes de Crime, usarei nesse endpoint para buscar as informações:
     https://api.themoviedb.org/3/movie/{movie_id}?api_key={api_key}&language=pt-BR
+    
     As informações serão: 
 
         revenue(renda);

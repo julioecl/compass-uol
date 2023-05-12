@@ -1,0 +1,1 @@
+https://api.themoviedb.org/3/{endpoint}?api_key=ed4e247936de2eca1131d1d5259d0020&{parâmetros_opcionais}

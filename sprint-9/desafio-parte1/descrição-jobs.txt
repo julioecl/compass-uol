@@ -1,0 +1,4 @@
+Descrição job-json
+-> Trabalhado com arquivo json da camada RAW, aplicando o filtro de filmes que continham renda e orçamento. Criada coluna LucroPorDolarInvestido, que será usada na análise. Depois salvo na camada TRT em parquet.
+Descrição jos-csv
+-> Utilizado o arquivo CSV que foi exportado para a camada RAW. As colunas que não seriam interessantes foram eliminadas e eliminados dados repetidos. Exportados para camada TRT (trusted) em formato parquet.

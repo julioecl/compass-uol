@@ -4,6 +4,7 @@ from awsglue.utils import getResolvedOptions
 from pyspark.context import SparkContext
 from awsglue.context import GlueContext
 from awsglue.job import Job
+from awsglue.dynamicframe import DynamicFrame
 
 ## @params: [JOB_NAME]
 
@@ -24,6 +25,10 @@ df_movies = Filter.apply(
     frame=df_movies,
     f=lambda x: x["Orcamento"] != 0 and x["Renda"] != 0
 )
+
+df_movies = df_movies.toDF()
+df_movies = df_movies.withColumn("LucroPorDolarInvestido", df_movies["Renda"] / df_movies["Orcamento"])
+df_movies = DynamicFrame.fromDF(df_movies, glueContext, "movies" )
 
 glueContext.write_dynamic_frame.from_options(
     frame = df_movies,

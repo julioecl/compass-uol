@@ -1,0 +1,51 @@
+CREATE VIEW dim_data AS
+SELECT 
+	idLocacao,
+	dataLocacao,
+	horaLocacao,
+	dataEntrega,
+	horaEntrega
+from tb_dataloc td
+
+CREATE VIEW dim_cliente AS
+SELECT 
+	idCliente,
+	nomeCliente,
+	cidadeCliente,
+	estadoCliente,
+	paisCliente
+from tb_cliente tc
+
+CREATE VIEW dim_carro AS
+SELECT 
+	tcar.idCarro,
+	tcar.kmCarro,
+	tcar.classiCarro,
+	tcar.marcaCarro,
+	tcar.modeloCarro,
+	tcar.anoCarro,
+	co.tipoCombustivel
+FROM tb_carro tcar
+JOIN tb_combustivel co ON tcar.idCombustivel = co.idCombustivel;
+
+CREATE VIEW dim_vendedor AS
+SELECT 
+	idVendedor,
+	nomeVendedor,
+	sexoVendedor,
+	estadoVendedor
+from tb_vendedor tven
+
+CREATE VIEW fato_locacao AS
+SELECT
+    tl.idLocacao,   
+    tc.idCliente,
+    tcar.idCarro,
+    tven.idVendedor,
+    td.qtdDiaria,
+    td.vlrDiaria
+FROM tb_locacao tl
+INNER JOIN tb_cliente tc ON tl.idCliente = tc.idCliente
+INNER JOIN tb_dataloc td ON tl.idLocacao = td.idLocacao
+INNER JOIN tb_carro tcar ON tl.idCarro = tcar.idCarro
+INNER JOIN tb_vendedor tven ON tl.idVendedor = tven.idVendedor;

@@ -40,7 +40,7 @@ for movie_id in df_ids['Id']:
           'IdiomaOriginal': data['original_language'],
           'Orcamento': data['budget'],
           'Renda': data['revenue'],
-          'NotaMedia:': data['vote_average'], 
+          'NotaMedia': data['vote_average'], 
           'DataLancamento': data['release_date']}
     movies.append(movie)
 

@@ -27,6 +27,7 @@ df_movies = df_movies.drop("generoArtista", "personagem", "nomeArtista", "anoNas
 df_movies = df_movies.filter(lambda row: re.search(r'\bWar\b', row['genero']))
 df_movies = df_movies.toDF()
 df_movies = df_movies.distinct()
+df_movies = df_movies.withColumnRenamed("tituloPincipal","tituloPrincipal")
 df_movies = DynamicFrame.fromDF(df_movies, glueContext, "movies" )
 
 glueContext.write_dynamic_frame.from_options(

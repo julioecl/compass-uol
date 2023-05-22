@@ -27,6 +27,7 @@ df_movies = Filter.apply(
 )
 
 df_movies = df_movies.toDF()
+df_movies = df_movies.withColumnRenamed("NotaMedia:","NotaMedia")
 df_movies = df_movies.withColumn("LucroPorDolarInvestido", df_movies["Renda"] / df_movies["Orcamento"])
 df_movies = DynamicFrame.fromDF(df_movies, glueContext, "movies" )
 

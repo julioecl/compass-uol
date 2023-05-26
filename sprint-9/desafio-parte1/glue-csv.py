@@ -1,7 +1,7 @@
 import sys
 from awsglue.transforms import *
 from awsglue.utils import getResolvedOptions
-from pyspark.context import SparkContext
+from pyspark.context import SparkContextrenomear coluna em df pysparkwithColumnRenamed
 from awsglue.context import GlueContext
 from awsglue.dynamicframe import DynamicFrame
 from awsglue.job import Job

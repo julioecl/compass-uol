@@ -42,12 +42,11 @@ for movie_id in df_ids['Id']:
           'Renda': data['revenue'],
           'NotaMedia': data['vote_average'], 
           'DataLancamento': data['release_date']}
-    movies.append(movie)
+    movies.append(movie) 
+# Bucket S3
+movies_json = json.dumps(movies, indent=6)  
+s3.put_object(Bucket='data-lake-julio', Key=f'Raw/TMDB/JSON/Movies/{year}/{month}/{day}/movies{day}{month}.json', Body=movies_json)
 
 # Localmente
-out_file = open("./desafio/movies.json", "w")  
-movies_json = json.dump(movies, out_file, indent = 6) 
-
-# Bucket S3
-# movies_json = json.dumps(movies, indent=6)  
-# s3.put_object(Bucket='data-lake-julio', Key=f'Raw/TMDB/JSON/Movies/{year}/{month}/{day}/movies{day}{month}.json', Body=movies_json)
+# out_file = open("./desafio/movies.json", "w")  
+# movies_json = json.dump(movies, out_file, indent = 6)

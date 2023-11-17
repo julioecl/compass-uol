@@ -19,7 +19,7 @@ Manager: sudo docker swarm init --advertise-addr 52.53.185.120
 Workers: copiar código do manager
 Caso seja necessário adicionar mais instâncias posteriormente, para descobrir esse token, basta ir no manager e digitar:
 
-sudo docker swarm join --token SWMTKN-1-4hc7lru7ov0ccs7axt98rgyd959yvierkym92ht8xucxp4e6az-91f6um9892u6uvwkc81rp2ch8 52.53.185.120:2377
+sudo docker swarm join --token 'TOKEN' 52.53.185.120:2377
 
 docker swarm join-token manager
 

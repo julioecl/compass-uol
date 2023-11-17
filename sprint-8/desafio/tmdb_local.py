@@ -8,7 +8,7 @@ year = datetime.datetime.now().strftime('%Y')
 month = datetime.datetime.now().strftime('%m')
 day = datetime.datetime.now().strftime('%d')
 
-s3 = boto3.client('s3', aws_access_key_id='AKIAXCFF4CBZUPBUKDLY', aws_secret_access_key='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')
+s3 = boto3.client('s3', aws_access_key_id='aws_access_key_i', aws_secret_access_key='aws_secret_access_key')
 
 api_key = "ed4e247936de2eca1131d1d5259d0020"
 # Gênero Guerra(WAR), após consulta aos gêneros.
